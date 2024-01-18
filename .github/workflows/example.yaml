@@ -1,0 +1,16 @@
+name: example story upload action
+
+on: [push]
+
+jobs:
+  story-upload:
+    name: story upload
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: navikt/story-upload@v1
+        with:
+          id: 757da08e-031e-4fac-a5f0-fffe6d2d96b6
+          dir: example/quartobook/output
+          team_token: ${{ secrets.TEAM_TOKEN }}
+          env: dev

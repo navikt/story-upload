@@ -1,0 +1,35 @@
+name: "Datastory update"
+author: "nada"
+description: "Update datastory in datamarkedsplassen"
+inputs:
+  id:
+    description: The ID of the datastory
+    required: true
+  dir:
+    description: The folder containing the datastory files
+    required: true
+  team_token:
+    description: The team token for the team owning the datastory
+    required: true
+  env:
+    description: The environment to publish the datastory (dev/prod). Defaults to dev if omitted.
+    required: false
+    default: "dev"
+  public:
+    description: Boolean indicating whether to publish quarto publically. Defaults to false if omitted
+    required: false
+    default: "false"
+  batch_size:
+    description: The batch size for the datastory files. Defaults to 10.
+    required: false
+    default: "10"
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.id }}
+    - ${{ inputs.dir }}
+    - ${{ inputs.team_token }}
+    - ${{ inputs.env }}
+    - ${{ inputs.public }}
+    - ${{ inputs.batch_size }}
