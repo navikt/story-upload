@@ -3,7 +3,7 @@ name: example story upload action
 on: [push]
 
 jobs:
-  story-upload:
+  story-upload-dev:
     name: story upload
     runs-on: ubuntu-latest
     steps:
@@ -14,4 +14,17 @@ jobs:
           dir: example/quartobook/output
           team_token: ${{ secrets.TEAM_TOKEN }}
           env: dev
+          public: "true"
+
+  story-upload-prod:
+    name: story upload
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: navikt/story-upload@v1
+        with:
+          id: b7e78eff-45b3-47a9-aee2-bb8b920451fb
+          dir: example/quartobook/output
+          team_token: ${{ secrets.TEAM_TOKEN_PROD }}
+          env: prod
           public: "true"
