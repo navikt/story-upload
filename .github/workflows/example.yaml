@@ -14,3 +14,4 @@ jobs:
           dir: example/quartobook/output
           team_token: ${{ secrets.TEAM_TOKEN }}
           env: dev
+          public: true
