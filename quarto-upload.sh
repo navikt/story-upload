@@ -21,7 +21,9 @@ fi
 
 if [[ $PUBLIC == "true" ]]
 then
+    echo "public publish"
     knatch ${QUARTO_ID} ${DIR} ${TEAM_TOKEN} --host ${HOST} --path api/v1/story --batch-size ${BATCH_SIZE}
 else
+    echo "internal publish"
     knatch ${QUARTO_ID} ${DIR} ${TEAM_TOKEN} --host ${HOST} --batch-size ${BATCH_SIZE}
 fi
