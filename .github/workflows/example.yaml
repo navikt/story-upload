@@ -10,7 +10,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: navikt/story-upload@v1
         with:
-          id: 757da08e-031e-4fac-a5f0-fffe6d2d96b6
+          id: baa3a23a-5f7f-4b73-9071-2510c31a2860
           dir: example/quartobook/output
           team_token: ${{ secrets.TEAM_TOKEN }}
           env: dev
