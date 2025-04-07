@@ -1,6 +1,9 @@
 name: example internal story upload action
 
-on: [push]
+on: 
+  push:
+    paths:
+      - '_site/**'
 
 jobs:
   story-upload-dev:
@@ -14,3 +17,14 @@ jobs:
           dir: example/quartobook/output
           team_token: ${{ secrets.TEAM_TOKEN }}
           env: dev
+  story-upload-prod:
+    name: story upload prod
+    runs-on: ubuntu-latest
+    steps:
+        - uses: actions/checkout@v4
+        - uses: navikt/story-upload@v1
+          with:
+            id: 0f5cc968-ddc8-47ec-816a-763059d25ae1
+            dir: example/quartobook/output
+            team_token: ${{ secrets.TEAM_TOKEN_PROD }}
+            env: prod
