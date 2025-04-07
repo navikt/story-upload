@@ -1,10 +1,6 @@
 name: example internal story upload action
 
-on: 
-  push:
-    paths:
-      - 'github/workflows/example_internal_publish.yaml'
-      - '_site/**'
+on: [push]
 
 jobs:
   story-upload-dev:
